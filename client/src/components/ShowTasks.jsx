@@ -19,7 +19,7 @@ export const ShowTasks = () => {
 
     const getData = async () => {
         try {
-            let data1 = await fetch("http://localhost:5000/task")
+            let data1 = await fetch("https://presolv-task.herokuapp.com/task")
             let res = await data1.json()
             setChartData(res)
             setData(res.task)
@@ -31,7 +31,7 @@ export const ShowTasks = () => {
     const handleChange = async (e) => {
         setToggle(!toggle)
         try {
-            let res = await fetch(`http://localhost:5000/task/${e}`, {
+            let res = await fetch(`https://presolv-task.herokuapp.com/task/${e}`, {
                 method: "PATCH",
                 body: JSON.stringify({
                     taskComplete: toggle

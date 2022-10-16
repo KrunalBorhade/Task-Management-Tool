@@ -22,7 +22,7 @@ export const AddTask = (props) => {
     const registerData = async (e) => {
         e.preventDefault()
         try {
-            let res = await fetch("http://localhost:5000/task", {
+            let res = await fetch("https://presolv-task.herokuapp.com/task", {
                 method: "POST",
                 body: JSON.stringify({
                     taskName,

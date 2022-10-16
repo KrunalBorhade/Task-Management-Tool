@@ -14,7 +14,7 @@ export const Login = () => {
   const registerData = async (e) => {
 
     try {
-      let res = await fetch("http://localhost:5000/login", {
+      let res = await fetch("https://presolv-task.herokuapp.com/login", {
         method: "POST",
         body: JSON.stringify({
           email: email,
