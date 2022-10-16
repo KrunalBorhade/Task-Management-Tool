@@ -4,7 +4,7 @@ require('dotenv').config()
 
 PORT = process.env.PORT || 5000
 
-app.listen(PORT, async()=>{
+app.listen(PORT, async () => {
     try {
         await connect()
         console.log(`Server running Successfully on Port - ${PORT}`)
