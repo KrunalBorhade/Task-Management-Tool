@@ -19,8 +19,8 @@ export const AddTask = (props) => {
         e.preventDefault()
     }
 
-    const registerData = async (e) => {
-        e.preventDefault()
+    const registerData = async () => {
+       
         try {
             let res = await fetch("https://presolv-task.herokuapp.com/task", {
                 method: "POST",
@@ -35,7 +35,7 @@ export const AddTask = (props) => {
                 }
             })
             let data = await res.json()
-            console.log(data)
+            // console.log(data)
             props.getData()
         } catch (error) {
             console.log(error)
@@ -55,7 +55,7 @@ export const AddTask = (props) => {
 
     const taskDes = (e) => {
         setDesc(e.target.value)
-        if (desc.length > 100) {
+        if (desc.length > 500) {
             alert("Text Length must be 500 Characters")
         }
     }
@@ -72,7 +72,7 @@ export const AddTask = (props) => {
                     justifyContent: "center", textOverflow: 'ellipsis'
                 }}>
                     <TextField id="outlined-basic" type="text" label="Task Name" error variant="outlined" required sx={{ mt: '50rem', }} onChange={taskAdd} inputProps={{ maxLength: 100 }} />
-                    <TextareaAutosize id="outlined-basic" value={desc} type="text" placeholder="Task-Description" maxRows={4} variant="outlined" required minRows={3} sx={{ mt: '30px', overflow: 'auto', }} style={{ width: 220 }} inputProps={{ maxLength: 5 }} onChange={taskDes} />
+                    <TextareaAutosize id="outlined-basic" value={desc} type="text" placeholder="Task-Description" maxRows={4} variant="outlined" required minRows={3} sx={{ mt: '30px', overflow: 'auto', }} style={{ width: 220 }} inputprops={{ maxLength: 5 }} onChange={taskDes} />
                     <Box>
                         <FormControl sx={{ m: 1, minWidth: 120 }}>
 

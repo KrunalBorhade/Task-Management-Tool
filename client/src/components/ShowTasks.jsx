@@ -14,7 +14,7 @@ export const ShowTasks = () => {
 
         getData()
 
-    }, [])
+    }, [toggle])
 
 
     const getData = async () => {
@@ -41,6 +41,7 @@ export const ShowTasks = () => {
                 }
             })
             let data = await res.json()
+            console.log(data)
         } catch (error) {
             console.log(error)
         }
@@ -53,9 +54,15 @@ export const ShowTasks = () => {
             <div className='display-container'>
                 {data.map((e) => {
                     return (
-                        <div className='display-main'>
-                            <h1 key={e._id}>{e.taskName}</h1>
-                            <p>{e.desc}</p>
+                        <div key={e._id} className='display-main'>
+                            <div className='displayHead'>
+                            {e.taskName}
+                            </div>
+                            
+                            <div className='display-desc'>
+                            {e.desc}
+                            </div>
+                            
                             <div className='main-flex'>
                                 <p>{e.devloper}</p>
                                 <p>{e.dueDate.slice(0, 10)}</p>
